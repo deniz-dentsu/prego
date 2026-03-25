@@ -1,0 +1,5 @@
+{
+  "name": "Pregnancy Nutrition Guide",
+  "description": "Scan products, foods, or search dishes to check if they are safe during pregnancy based on WHO and Voedingscentrum guidelines.",
+  "requestFramePermissions": ["camera"]
+}
