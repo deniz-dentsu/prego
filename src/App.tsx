@@ -200,31 +200,31 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen relative text-[#5D1049] font-sans selection:bg-[#E30425]/20">
+    <div className="min-h-screen relative text-gray-100 font-sans selection:bg-[#E65100]/20 bg-[#121212]">
       {/* Glassmorphism Background */}
-      <div className="fixed inset-0 -z-10 overflow-hidden bg-[#F1F0F4]">
-        <div className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full bg-gradient-to-br from-[#E30425]/15 to-[#5D1049]/5 mix-blend-multiply blur-[120px]" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-gradient-to-tl from-[#5D1049]/15 to-[#E30425]/5 mix-blend-multiply blur-[120px]" />
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full bg-gradient-to-br from-[#E65100]/20 to-[#5D1049]/10 mix-blend-screen blur-[120px]" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-gradient-to-tl from-[#5D1049]/20 to-[#E65100]/10 mix-blend-screen blur-[120px]" />
       </div>
 
       {/* Header */}
-      <header className="bg-white/40 backdrop-blur-2xl border-b border-white/50 sticky top-0 z-10 shadow-[0_4px_30px_rgba(93,16,73,0.03)]">
+      <header className="bg-[#1E1E1E]/60 backdrop-blur-2xl border-b border-white/10 sticky top-0 z-10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
         <div className="max-w-md mx-auto px-4 h-16 flex items-center justify-between">
           {result ? (
-            <button onClick={reset} className="p-2 -ml-2 text-[#5D1049]/60 hover:text-[#5D1049] transition-colors">
+            <button onClick={reset} className="p-2 -ml-2 text-gray-400 hover:text-gray-100 transition-colors">
               <ChevronLeft className="w-6 h-6" />
             </button>
           ) : (
             <div className="w-10"></div>
           )}
-          <h1 className="text-lg font-semibold text-[#5D1049]/90">PreGO</h1>
+          <h1 className="text-lg font-semibold text-gray-100">PreGO</h1>
           <div className="w-10"></div>
         </div>
       </header>
 
       <main className="max-w-md mx-auto p-4 pb-24">
         {error && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl text-red-700 text-sm flex items-start gap-3">
+          <div className="mb-6 p-4 bg-red-900/30 border border-red-800 rounded-2xl text-red-200 text-sm flex items-start gap-3">
             <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
             <p>{error}</p>
           </div>
@@ -232,9 +232,9 @@ export default function App() {
 
         {result ? (
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="bg-gradient-to-br from-white/70 to-white/30 backdrop-blur-2xl rounded-3xl p-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_8px_32px_rgba(93,16,73,0.08)] border border-white/50">
+            <div className="bg-gradient-to-br from-[#2A2A2A]/80 to-[#1E1E1E]/60 backdrop-blur-2xl rounded-3xl p-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.4)] border border-white/10">
               <div className="flex items-start justify-between gap-4 mb-4">
-                <h2 className="text-2xl font-bold text-[#5D1049]/90 leading-tight">{result.name}</h2>
+                <h2 className="text-2xl font-bold text-gray-100 leading-tight">{result.name}</h2>
                 <div className={`shrink-0 flex items-center justify-center w-12 h-12 rounded-full ${getStatusColor(result.status).split(' ')[0]}`}>
                   {getStatusIcon(result.status)}
                 </div>
@@ -244,24 +244,24 @@ export default function App() {
                 {result.status}
               </div>
 
-              <p className="text-lg text-[#5D1049]/80 font-medium mb-6 leading-relaxed">
+              <p className="text-lg text-gray-300 font-medium mb-6 leading-relaxed">
                 {result.summary}
               </p>
 
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-sm font-bold text-[#5D1049]/50 uppercase tracking-wider mb-2">Details</h3>
-                  <div className="text-[#5D1049]/70 leading-relaxed prose prose-stone prose-sm">
+                  <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Details</h3>
+                  <div className="text-gray-300 leading-relaxed prose prose-invert prose-sm">
                     <ReactMarkdown>{result.details}</ReactMarkdown>
                   </div>
                 </div>
 
                 {result.ingredients && result.ingredients.length > 0 && (
                   <div>
-                    <h3 className="text-sm font-bold text-[#5D1049]/50 uppercase tracking-wider mb-2">Ingredients / Components</h3>
+                    <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Ingredients / Components</h3>
                     <ul className="flex flex-wrap gap-2">
                       {result.ingredients.map((ing, i) => (
-                        <li key={i} className="bg-white/50 border border-white/60 shadow-[0_2px_10px_rgba(93,16,73,0.03)] text-[#5D1049]/80 px-3 py-1.5 rounded-lg text-sm backdrop-blur-md">
+                        <li key={i} className="bg-[#333333]/50 border border-white/10 shadow-[0_2px_10px_rgba(0,0,0,0.2)] text-gray-300 px-3 py-1.5 rounded-lg text-sm backdrop-blur-md">
                           {ing}
                         </li>
                       ))}
@@ -271,12 +271,12 @@ export default function App() {
 
                 {result.nutrition && result.nutrition.length > 0 && (
                   <div>
-                    <h3 className="text-sm font-bold text-[#5D1049]/50 uppercase tracking-wider mb-3">Nutritional Value (Approximate)</h3>
+                    <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Nutritional Value (Approximate)</h3>
                     <div className="grid grid-cols-2 gap-3">
                       {result.nutrition.map((item, i) => (
-                        <div key={i} className="bg-white/40 border border-white/60 shadow-[0_2px_10px_rgba(93,16,73,0.03)] p-3 rounded-xl flex flex-col backdrop-blur-md">
-                          <span className="text-xs text-[#5D1049]/60 font-medium uppercase tracking-wide">{item.nutrient}</span>
-                          <span className="text-sm font-semibold text-[#5D1049]/90">{item.amount}</span>
+                        <div key={i} className="bg-[#333333]/40 border border-white/10 shadow-[0_2px_10px_rgba(0,0,0,0.2)] p-3 rounded-xl flex flex-col backdrop-blur-md">
+                          <span className="text-xs text-gray-400 font-medium uppercase tracking-wide">{item.nutrient}</span>
+                          <span className="text-sm font-semibold text-gray-200">{item.amount}</span>
                         </div>
                       ))}
                     </div>
@@ -285,11 +285,11 @@ export default function App() {
 
                 {result.recipeTips && result.recipeTips.length > 0 && (
                   <div>
-                    <h3 className="text-sm font-bold text-[#5D1049]/50 uppercase tracking-wider mb-3">Healthy Recipe Tips</h3>
+                    <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Healthy Recipe Tips</h3>
                     <ul className="space-y-2">
                       {result.recipeTips.map((tip, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-[#5D1049]/80 leading-relaxed">
-                          <span className="text-[#E30425] mt-0.5">•</span>
+                        <li key={i} className="flex items-start gap-2 text-sm text-gray-300 leading-relaxed">
+                          <span className="text-[#E65100] mt-0.5">•</span>
                           <span>{tip}</span>
                         </li>
                       ))}
@@ -298,7 +298,7 @@ export default function App() {
                 )}
 
                 <div>
-                  <h3 className="text-sm font-bold text-[#5D1049]/50 uppercase tracking-wider mb-2">Sources</h3>
+                  <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Sources</h3>
                   <div className="flex flex-wrap gap-2">
                     {result.sources.map((source, i) => (
                       <a 
@@ -306,7 +306,7 @@ export default function App() {
                         href={source.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs font-medium text-[#5D1049]/70 bg-white/50 border border-white/60 shadow-[0_2px_10px_rgba(93,16,73,0.03)] hover:bg-white/70 hover:text-[#5D1049] transition-colors px-2 py-1 rounded-md flex items-center gap-1 backdrop-blur-md"
+                        className="text-xs font-medium text-gray-400 bg-[#333333]/50 border border-white/10 shadow-[0_2px_10px_rgba(0,0,0,0.2)] hover:bg-[#444444]/70 hover:text-gray-200 transition-colors px-2 py-1 rounded-md flex items-center gap-1 backdrop-blur-md"
                       >
                         {source.name}
                         <svg className="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -321,61 +321,61 @@ export default function App() {
             
             <button 
               onClick={reset}
-              className="w-full py-4 bg-gradient-to-r from-[#5D1049] to-[#7A1560] text-white rounded-2xl font-medium hover:from-[#4E0D3A] hover:to-[#5D1049] transition-all shadow-[0_8px_25px_rgba(93,16,73,0.25)] hover:shadow-[0_12px_30px_rgba(93,16,73,0.35)] active:scale-[0.98]"
+              className="w-full py-4 bg-gradient-to-r from-[#E65100] to-[#FF9800] text-white rounded-2xl font-medium hover:from-[#BF360C] hover:to-[#E65100] transition-all shadow-[0_8px_25px_rgba(230,81,0,0.25)] hover:shadow-[0_12px_30px_rgba(230,81,0,0.35)] active:scale-[0.98]"
             >
               Check Another Item
             </button>
           </div>
         ) : (
           <div className="space-y-6">
-            <div className="bg-gradient-to-br from-white/60 to-white/30 backdrop-blur-2xl rounded-3xl p-1.5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_8px_32px_rgba(93,16,73,0.05)] border border-white/50 flex flex-wrap sm:flex-nowrap gap-1">
+            <div className="bg-gradient-to-br from-[#2A2A2A]/60 to-[#1E1E1E]/40 backdrop-blur-2xl rounded-3xl p-1.5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.3)] border border-white/10 flex flex-wrap sm:flex-nowrap gap-1">
               <button
                 onClick={() => setActiveTab('product')}
-                className={`flex-1 flex flex-col items-center justify-center py-3 px-2 rounded-2xl text-sm font-medium transition-all duration-300 ${activeTab === 'product' ? 'bg-gradient-to-br from-[#5D1049] to-[#7A1560] text-white shadow-[0_4px_20px_rgba(93,16,73,0.3)] scale-[1.02]' : 'text-[#5D1049]/60 hover:text-[#5D1049]/90 hover:bg-white/40'}`}
+                className={`flex-1 flex flex-col items-center justify-center py-3 px-2 rounded-2xl text-sm font-medium transition-all duration-300 ${activeTab === 'product' ? 'bg-gradient-to-br from-[#E65100] to-[#FF9800] text-white shadow-[0_4px_20px_rgba(230,81,0,0.3)] scale-[1.02]' : 'text-gray-400 hover:text-gray-200 hover:bg-white/5'}`}
               >
                 <ScanBarcode className="w-5 h-5 mb-1" />
                 Product
               </button>
               <button
                 onClick={() => setActiveTab('food')}
-                className={`flex-1 flex flex-col items-center justify-center py-3 px-2 rounded-2xl text-sm font-medium transition-all duration-300 ${activeTab === 'food' ? 'bg-gradient-to-br from-[#5D1049] to-[#7A1560] text-white shadow-[0_4px_20px_rgba(93,16,73,0.3)] scale-[1.02]' : 'text-[#5D1049]/60 hover:text-[#5D1049]/90 hover:bg-white/40'}`}
+                className={`flex-1 flex flex-col items-center justify-center py-3 px-2 rounded-2xl text-sm font-medium transition-all duration-300 ${activeTab === 'food' ? 'bg-gradient-to-br from-[#E65100] to-[#FF9800] text-white shadow-[0_4px_20px_rgba(230,81,0,0.3)] scale-[1.02]' : 'text-gray-400 hover:text-gray-200 hover:bg-white/5'}`}
               >
                 <Camera className="w-5 h-5 mb-1" />
                 Food
               </button>
               <button
                 onClick={() => setActiveTab('dish')}
-                className={`flex-1 flex flex-col items-center justify-center py-3 px-2 rounded-2xl text-sm font-medium transition-all duration-300 ${activeTab === 'dish' ? 'bg-gradient-to-br from-[#5D1049] to-[#7A1560] text-white shadow-[0_4px_20px_rgba(93,16,73,0.3)] scale-[1.02]' : 'text-[#5D1049]/60 hover:text-[#5D1049]/90 hover:bg-white/40'}`}
+                className={`flex-1 flex flex-col items-center justify-center py-3 px-2 rounded-2xl text-sm font-medium transition-all duration-300 ${activeTab === 'dish' ? 'bg-gradient-to-br from-[#E65100] to-[#FF9800] text-white shadow-[0_4px_20px_rgba(230,81,0,0.3)] scale-[1.02]' : 'text-gray-400 hover:text-gray-200 hover:bg-white/5'}`}
               >
                 <Utensils className="w-5 h-5 mb-1" />
                 Dish
               </button>
               <button
                 onClick={() => setActiveTab('skincare')}
-                className={`flex-1 flex flex-col items-center justify-center py-3 px-2 rounded-2xl text-sm font-medium transition-all duration-300 ${activeTab === 'skincare' ? 'bg-gradient-to-br from-[#5D1049] to-[#7A1560] text-white shadow-[0_4px_20px_rgba(93,16,73,0.3)] scale-[1.02]' : 'text-[#5D1049]/60 hover:text-[#5D1049]/90 hover:bg-white/40'}`}
+                className={`flex-1 flex flex-col items-center justify-center py-3 px-2 rounded-2xl text-sm font-medium transition-all duration-300 ${activeTab === 'skincare' ? 'bg-gradient-to-br from-[#E65100] to-[#FF9800] text-white shadow-[0_4px_20px_rgba(230,81,0,0.3)] scale-[1.02]' : 'text-gray-400 hover:text-gray-200 hover:bg-white/5'}`}
               >
                 <Droplets className="w-5 h-5 mb-1" />
                 Skincare
               </button>
             </div>
 
-            <div className="bg-gradient-to-br from-white/70 to-white/30 backdrop-blur-2xl rounded-3xl p-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_8px_32px_rgba(93,16,73,0.08)] border border-white/50">
+            <div className="bg-gradient-to-br from-[#2A2A2A]/80 to-[#1E1E1E]/60 backdrop-blur-2xl rounded-3xl p-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.4)] border border-white/10">
               {activeTab === 'dish' ? (
                 <form onSubmit={handleSearch} className="space-y-4">
                   <div className="space-y-2">
-                    <label htmlFor="dish" className="block text-sm font-medium text-[#5D1049]/80">
+                    <label htmlFor="dish" className="block text-sm font-medium text-gray-300">
                       What dish are you having?
                     </label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                        <Search className="h-5 w-5 text-[#5D1049]/50" />
+                        <Search className="h-5 w-5 text-gray-500" />
                       </div>
                       <input
                         type="text"
                         id="dish"
                         value={dishName}
                         onChange={(e) => setDishName(e.target.value)}
-                        className="block w-full pl-11 pr-4 py-4 bg-white/40 backdrop-blur-md border border-white/60 rounded-2xl text-[#5D1049] placeholder-[#5D1049]/40 focus:ring-2 focus:ring-[#5D1049]/20 focus:border-[#5D1049]/30 transition-all outline-none shadow-[inset_0_2px_10px_rgba(0,0,0,0.02)]"
+                        className="block w-full pl-11 pr-4 py-4 bg-[#333333]/40 backdrop-blur-md border border-white/10 rounded-2xl text-gray-100 placeholder-gray-500 focus:ring-2 focus:ring-[#E65100]/50 focus:border-[#E65100]/50 transition-all outline-none shadow-[inset_0_2px_10px_rgba(0,0,0,0.2)]"
                         placeholder="e.g. Sushi, Carbonara, Caesar Salad..."
                       />
                     </div>
@@ -383,7 +383,7 @@ export default function App() {
                   <button
                     type="submit"
                     disabled={!dishName.trim() || isEvaluating}
-                    className="w-full py-4 bg-gradient-to-r from-[#5D1049] to-[#7A1560] text-white rounded-2xl font-medium hover:from-[#4E0D3A] hover:to-[#5D1049] transition-all shadow-[0_8px_25px_rgba(93,16,73,0.25)] hover:shadow-[0_12px_30px_rgba(93,16,73,0.35)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 active:scale-[0.98]"
+                    className="w-full py-4 bg-gradient-to-r from-[#E65100] to-[#FF9800] text-white rounded-2xl font-medium hover:from-[#BF360C] hover:to-[#E65100] transition-all shadow-[0_8px_25px_rgba(230,81,0,0.25)] hover:shadow-[0_12px_30px_rgba(230,81,0,0.35)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 active:scale-[0.98]"
                   >
                     {isEvaluating ? (
                       <>
@@ -398,19 +398,19 @@ export default function App() {
               ) : (
                 <div className="space-y-6">
                   <div className="text-center space-y-2">
-                    <h2 className="text-lg font-semibold text-[#5D1049]/90">
+                    <h2 className="text-lg font-semibold text-gray-200">
                       {activeTab === 'product' ? 'Scan Product Barcode or Ingredients' : 
                        activeTab === 'skincare' ? 'Scan Skincare Barcode or Ingredients' : 
                        'Take a Photo of the Food'}
                     </h2>
-                    <p className="text-sm text-[#5D1049]/60">
+                    <p className="text-sm text-gray-400">
                       {activeTab === 'product' || activeTab === 'skincare'
                         ? 'Position the barcode or ingredients list clearly in the frame.' 
                         : 'Make sure the food is well-lit and clearly visible.'}
                     </p>
                   </div>
                   
-                  <div className="relative aspect-[3/4] sm:aspect-square w-full overflow-hidden rounded-2xl bg-white/30 backdrop-blur-md border-2 border-dashed border-[#5D1049]/20 shadow-[inset_0_2px_15px_rgba(0,0,0,0.03)]">
+                  <div className="relative aspect-[3/4] sm:aspect-square w-full overflow-hidden rounded-2xl bg-[#333333]/30 backdrop-blur-md border-2 border-dashed border-white/10 shadow-[inset_0_2px_15px_rgba(0,0,0,0.2)]">
                     <Webcam
                       audio={false}
                       ref={webcamRef}
@@ -421,14 +421,14 @@ export default function App() {
                     
                     {/* Overlay guides */}
                     <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-                      <div className="w-2/3 h-1/3 border-2 border-white/50 rounded-xl"></div>
+                      <div className="w-2/3 h-1/3 border-2 border-white/30 rounded-xl"></div>
                     </div>
 
                     {isEvaluating && (
-                      <div className="absolute inset-0 bg-[#5D1049]/70 backdrop-blur-md flex flex-col items-center justify-center text-white">
-                        <Loader2 className="w-8 h-8 animate-spin mb-4" />
-                        <p className="font-medium">Analyzing image...</p>
-                        <p className="text-sm text-white/80 mt-2">Checking guidelines</p>
+                      <div className="absolute inset-0 bg-[#121212]/80 backdrop-blur-md flex flex-col items-center justify-center text-white">
+                        <Loader2 className="w-8 h-8 animate-spin mb-4 text-[#E65100]" />
+                        <p className="font-medium text-gray-200">Analyzing image...</p>
+                        <p className="text-sm text-gray-400 mt-2">Checking guidelines</p>
                       </div>
                     )}
                   </div>
@@ -436,7 +436,7 @@ export default function App() {
                   <button
                     onClick={handleCapture}
                     disabled={isEvaluating}
-                    className="w-full py-4 bg-gradient-to-r from-[#5D1049] to-[#7A1560] text-white rounded-2xl font-medium hover:from-[#4E0D3A] hover:to-[#5D1049] transition-all shadow-[0_8px_25px_rgba(93,16,73,0.25)] hover:shadow-[0_12px_30px_rgba(93,16,73,0.35)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 active:scale-[0.98]"
+                    className="w-full py-4 bg-gradient-to-r from-[#E65100] to-[#FF9800] text-white rounded-2xl font-medium hover:from-[#BF360C] hover:to-[#E65100] transition-all shadow-[0_8px_25px_rgba(230,81,0,0.25)] hover:shadow-[0_12px_30px_rgba(230,81,0,0.35)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 active:scale-[0.98]"
                   >
                     <Camera className="w-5 h-5" />
                     Capture & Analyze
